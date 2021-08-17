@@ -61,7 +61,7 @@ public class CalculateManager implements Operations {
     }
 
 
-    public String checkOperation(String[] splitLine) throws CalculateException {
+     String checkOperation(String[] splitLine) throws CalculateException {
         if ("+".equals( splitLine[1] )) {
             if (CheckArabicOrRoman.checkArabic( splitLine[0] ) && CheckArabicOrRoman.checkArabic( splitLine[2] ))
                 return String.valueOf( add( Integer.parseInt( splitLine[0] ), Integer.parseInt( splitLine[2] ) ) );

@@ -3,7 +3,7 @@ package calculator;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class RomanNumberConvert {
+class RomanNumberConvert {
 
     private final static TreeMap<Integer, String> map = new TreeMap<Integer, String>();
 
@@ -20,7 +20,7 @@ public class RomanNumberConvert {
     }
 
 
-    static int findKeyForValueToMap(String value) {
+    private static int findKeyForValueToMap(String value) {
         for (Map.Entry<Integer, String> pair : map.entrySet()) {
             if (value.equals( pair.getValue() ))
                 return pair.getKey();
@@ -28,7 +28,7 @@ public class RomanNumberConvert {
         return 0;
     }
 
-    public static String arabicToRoman(int number) {
+    static String arabicToRoman(int number) {
         int l = map.floorKey( number );
         if (number == l) {
             return map.get( number );
