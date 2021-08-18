@@ -5,7 +5,7 @@ class CheckArabicOrRoman {
     static boolean checkRoman(String value) throws CalculateException {
 
         if (RomanNumberConvert.romanToArabic( value ) == 0)
-            throw new CalculateException( "Не верный формат числа" );
+            throw new CalculateException( "Неверный формат числа" );
         return true;
     }
 
