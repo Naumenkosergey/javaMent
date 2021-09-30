@@ -20,8 +20,8 @@ public class PracticalTask6_1_12 {
 
     public static class Pair<T, X> {
 
-        T first;
-        X second;
+        private T first;
+        private X second;
 
         private Pair(T first, X second) {
             this.first = first;
@@ -55,7 +55,8 @@ public class PracticalTask6_1_12 {
         }
 
         public static <T, X> Pair<T, X> of(T first, X second) {
-            return new Pair(first, second);
+
+            return new Pair<>(first, second);
         }
     }
 

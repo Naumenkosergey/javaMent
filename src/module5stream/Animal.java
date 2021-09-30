@@ -39,19 +39,20 @@ public class Animal implements Serializable {
 
     public static Animal[] deserialieAnimalArray(byte[] data) {
         int coutAnimal = 0;
-        Animal[] animals = new Animal[0];
-        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(data);
-        try (ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream)) {
+        Animal[] animals = null;
+        try (ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(data);
+             ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream)) {
             coutAnimal = objectInputStream.readInt();
             animals = new Animal[coutAnimal];
             for (int i = 0; i < animals.length; i++) {
                 Animal animal = (Animal) objectInputStream.readObject();
                 animals[i] = animal;
             }
-        } catch (Exception e) {
+        } catch (IOException | ClassNotFoundException | RuntimeException e) {
             throw new java.lang.IllegalArgumentException();
         }
         return animals;
+    }
 //        int countOfAnimals = 0;
 //        Animal[] animals = new Animal[0];
 //        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(data);
@@ -68,7 +69,7 @@ public class Animal implements Serializable {
 //        }
 //
 //        return animals;
-    }
+//    }
 
     public static List<Animal> deserialieAnimalArray(String fileName) throws IOException, ClassNotFoundException {
         List<Animal> animals = new ArrayList<>();
